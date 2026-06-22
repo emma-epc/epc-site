@@ -112,13 +112,13 @@ const services = [
   },
   {
     c: "c4", title: "Création de sites web", bookLabel: "Création de sites web", fromPrice: 1900,
-    body: "Des sites clairs, rapides et à votre image, conçus pour convertir (et simples à faire vivre une fois livrés).",
+    body: "Des sites codés sur-mesure, clairs, rapides et à votre image, conçus pour convertir.",
     pages: [
       { title: "Création de sites web", body: [
         "La création d'un site internet permet de présenter votre activité, vos offres et votre identité à travers un espace clair, professionnel et adapté à vos objectifs. L'enjeu est de construire un site agréable à parcourir, facile à comprendre et pensé pour guider efficacement vos visiteurs.",
-        "J'accompagne les entreprises, marques, indépendants et associations dans la création ou la refonte de leur site internet. Chaque projet est construit selon l'arborescence, les contenus disponibles, le niveau de personnalisation, les fonctionnalités attendues et la solution technique choisie.",
+        "J'accompagne les entreprises, marques, indépendants et associations dans la création ou la refonte de leur site internet. Chaque projet est codé sur-mesure (sans template ni CMS imposé) selon l'arborescence, les contenus disponibles, le niveau de personnalisation, les fonctionnalités attendues et le niveau de sur-mesure souhaité.",
       ] },
-      { title: PG2, list: ["Le cadrage du projet et des besoins", "La définition de l'arborescence", "La structuration des pages et des contenus", "La conception ou la personnalisation de l'interface", "L'adaptation à votre identité visuelle", "L'intégration des textes, photos et vidéos fournis", "L'adaptation du site aux ordinateurs, tablettes et mobiles", "La mise en place des formulaires prévus", "L'optimisation SEO de base", "Les vérifications techniques avant la mise en ligne", "La mise en ligne du site"] },
+      { title: PG2, list: ["Le cadrage du projet et des besoins", "La définition de l'arborescence", "La structuration des pages et des contenus", "La conception sur-mesure de l'interface", "L'adaptation à votre identité visuelle", "L'intégration des textes, photos et vidéos fournis", "L'adaptation du site aux ordinateurs, tablettes et mobiles", "La mise en place des formulaires prévus", "L'optimisation SEO de base", "Les vérifications techniques avant la mise en ligne", "La mise en ligne du site"] },
       { title: PG3, list: ["La création de pages supplémentaires", "La rédaction ou la réécriture des textes", "La création d'un blog ou d'un espace actualités", "La mise en place de formulaires avancés", "L'intégration d'un module de réservation", "L'intégration d'un système de paiement ou de click and collect", "La création d'un site e-commerce", "L'ajout d'animations avancées", "L'optimisation SEO approfondie", "La formation à la prise en main", "La maintenance et les évolutions du site"] },
       { title: PG4, body: [
         "Chaque projet débute par un échange de cadrage pour définir la structure du site, les contenus, les fonctionnalités et la solution technique adaptée. L'arborescence et la direction visuelle sont validées avant le développement.",
