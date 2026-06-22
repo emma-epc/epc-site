@@ -398,9 +398,6 @@ section{position:relative;z-index:2}
 .about{padding:130px 0}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
 @media(max-width:840px){.about-grid{grid-template-columns:1fr;gap:30px}}
-/* sur mobile, on resserre un peu la colonne texte pour que l'onglet vertical
-   « Prendre rendez-vous » (fixé à droite) ne vienne jamais la chevaucher */
-@media(max-width:680px){.about .about-col:not(.about-media){padding-right:30px}}
 .about-col h2{font-family:var(--font-display);font-size:clamp(40px,6vw,88px);line-height:.98;letter-spacing:-.02em;padding-bottom:.04em;margin-bottom:18px}
 .about-col h2 em{font-style:italic;color:var(--terra)}
 /* encart photo (placeholder tant que /public/emma.jpg n'existe pas) */
