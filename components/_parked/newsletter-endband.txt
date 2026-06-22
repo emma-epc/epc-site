@@ -1,0 +1,16 @@
+Module « La Lettre » retiré de l'endband (page.jsx) le 2026-06 à la demande d'Emma.
+Pour le réactiver, recoller ce bloc dans .eb-top (après le <div> contact),
+remettre .eb-top en grid 2 colonnes (globals.css : .eb-top{display:grid;grid-template-columns:1.25fr .95fr;gap:54px;align-items:start})
+et rajouter l'ancre #lettre si un lien y pointe.
+
+<div className="eb-news" id="lettre">
+  <h3>La Lettre, chaque mardi.</h3>
+  <p>L'actu des réseaux décryptée — sans spam, désinscription en un clic.</p>
+  <form onSubmit={(e) => e.preventDefault()}>
+    <input type="email" placeholder="votre@email.fr" aria-label="Votre email" required />
+    <button type="submit" className="pill moutarde"><span>S'abonner</span></button>
+  </form>
+  <p className="eb-consent">En vous inscrivant, vous acceptez de recevoir La Lettre. Vos données ne sont jamais cédées. <a href="/confidentialite">Politique de confidentialité</a>.</p>
+</div>
+
+(Le CSS .eb-news / .eb-consent reste dans globals.css, inutilisé mais prêt.)
