@@ -64,7 +64,14 @@ export const metadata = {
     index: true, follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: { icon: "/logo-epc.png", apple: "/logo-epc.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
+  },
 };
 
 /* Données structurées (JSON-LD) — référencement local Charente / Nouvelle-Aquitaine / Gers */
