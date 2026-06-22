@@ -113,24 +113,22 @@ a{color:inherit;text-decoration:none}
   transition:transform .55s var(--pop),opacity .4s var(--ease)}
 .navx.scrolled.tapped .navx-petal{opacity:.92;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-36px) scale(1)}
 
-.navx-bar{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;height:70px;width:auto;padding:0;border-radius:40px;
+.navx-bar{position:relative;display:flex;align-items:center;justify-content:flex-start;gap:2px;height:70px;width:auto;padding:0;border-radius:40px;
   background:var(--cream);overflow:hidden;white-space:nowrap;cursor:pointer;
   box-shadow:0 10px 30px rgba(31,26,22,.12),inset 0 0 0 1px rgba(31,26,22,.06);
   max-width:680px;
   transition:max-width .6s var(--ease),width .6s var(--ease),gap .6s var(--ease),background .5s var(--ease),box-shadow .5s var(--ease)}
-/* état replié = orbe terracotta unique (disques + barre même couleur = fusion) */
+/* état replié = la barre se réduit au seul orbe terracotta à gauche */
 .navx.scrolled:not(.open) .navx-bar{max-width:70px;width:70px;gap:0;
   background:var(--orb);box-shadow:0 8px 24px rgba(184,92,74,.34)}
-.navx-mid{display:flex;align-items:center;gap:6px;overflow:hidden;max-width:600px;opacity:1;padding:0 4px;
+.navx-mid{display:flex;align-items:center;gap:6px;overflow:hidden;max-width:600px;opacity:1;padding:0 4px 0 2px;
   transition:max-width .6s var(--ease),opacity .45s var(--ease)}
 .navx.scrolled:not(.open) .navx-mid{max-width:0;opacity:0;padding:0}
-/* disque terracotta PLEIN qui épouse l'arrondi de la barre (touche les bords),
-   avec l'œil dedans qui bouge. Replié : petits disques fusionnés = l'orbe. */
-.navx-disc{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;
-  background:var(--orb);transition:width .6s var(--ease),height .6s var(--ease),transform .6s var(--ease),background .5s var(--ease)}
-.navx.scrolled:not(.open) .navx-disc{width:30px;height:30px}
-.navx.scrolled:not(.open) .disc-l{transform:translateX(4px)}   /* yeux qui se collent */
-.navx.scrolled:not(.open) .disc-r{transform:translateX(-4px)}
+/* orbe terracotta PLEIN à gauche, identique dans tous les états : les deux yeux
+   y vivent collés. Déployé : il reste à gauche, le menu glisse à sa droite.
+   Replié : la barre se referme exactement dessus → orbe seul. */
+.navx-orb{flex:0 0 auto;position:relative;display:flex;align-items:center;justify-content:center;gap:2px;width:70px;height:70px;border-radius:50%;
+  background:var(--orb);transition:background .5s var(--ease)}
 .navx-eye{width:26px;height:26px;display:block}
 .navx-eye circle.eyeball{fill:var(--eye);transition:fill .5s var(--ease)}
 .navx-home{display:flex;align-items:center}
@@ -152,8 +150,8 @@ a{color:inherit;text-decoration:none}
 
   /* --- EN HAUT DU HERO : barre longue centrée en haut --- */
   .navx{left:12px;right:12px;justify-content:center}
-  .navx.attop .navx-bar{max-width:none;width:auto;height:auto;padding:7px 8px;gap:2px;background:var(--cream)}
-  .navx.attop .navx-disc{display:none}              /* pas d'yeux dans la barre longue */
+  .navx.attop .navx-bar{max-width:none;width:auto;height:auto;padding:7px 8px;gap:2px;background:var(--cream);justify-content:center}
+  .navx.attop .navx-orb{display:none}               /* pas d'yeux dans la barre longue */
   .navx.attop .navx-home{display:none}              /* wordmark masqué */
   .navx.attop .navx-mid{position:static;flex-direction:row;align-items:center;max-width:none;max-height:none;
     opacity:1;overflow:visible;pointer-events:auto;padding:0;background:transparent;box-shadow:none}
@@ -163,7 +161,7 @@ a{color:inherit;text-decoration:none}
   /* --- HORS HERO : orbe terracotta en haut à gauche --- */
   .navx.scrolled{left:14px;right:auto;justify-content:flex-start}
   .navx.scrolled .navx-bar{max-width:62px;width:62px;height:62px;padding:0;gap:0;background:var(--orb)}
-  .navx.scrolled .navx-disc{display:flex;width:28px;height:28px}
+  .navx.scrolled .navx-orb{display:flex;width:62px;height:62px}
   .navx.scrolled .navx-mid{display:none}            /* les liens passent dans la barre du bas */
 
   /* --- BARRE LONGUE FIXÉE EN BAS (hors hero) --- */
@@ -396,6 +394,9 @@ section{position:relative;z-index:2}
 .about{padding:130px 0}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
 @media(max-width:840px){.about-grid{grid-template-columns:1fr;gap:30px}}
+/* sur mobile, on resserre un peu la colonne texte pour que l'onglet vertical
+   « Prendre rendez-vous » (fixé à droite) ne vienne jamais la chevaucher */
+@media(max-width:680px){.about .about-col:not(.about-media){padding-right:30px}}
 .about-col h2{font-family:var(--font-display);font-size:clamp(40px,6vw,88px);line-height:.98;letter-spacing:-.02em;padding-bottom:.04em;margin-bottom:18px}
 .about-col h2 em{font-style:italic;color:var(--terra)}
 /* encart photo (placeholder tant que /public/emma.jpg n'existe pas) */

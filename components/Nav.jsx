@@ -113,7 +113,12 @@ export default function Nav() {
       </div>
 
       <div className="navx-bar">
-        <span className="navx-disc disc-l"><Eye svgRef={eyeL} pupRef={pupL} /></span>
+        {/* orbe terracotta unique à gauche : les deux yeux y vivent en permanence,
+            que le menu soit déployé ou replié (un seul œil, plus d'œil à droite) */}
+        <span className="navx-orb">
+          <Eye svgRef={eyeL} pupRef={pupL} />
+          <Eye svgRef={eyeR} pupRef={pupR} />
+        </span>
         <div className="navx-mid">
           <a href="#top" className="navx-home" aria-label="Accueil">
             <img className="navx-wordmark" src="/wordmark.png" alt="EP Communication" />
@@ -122,7 +127,6 @@ export default function Nav() {
             {links.map((l) => (<a key={l.label} href={l.href} onClick={() => setHover(false)}>{l.label}</a>))}
           </nav>
         </div>
-        <span className="navx-disc disc-r"><Eye svgRef={eyeR} pupRef={pupR} /></span>
       </div>
     </header>
 
