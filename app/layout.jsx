@@ -134,6 +134,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={anon.variable}>
       <body>
+        {/* Préchargement prioritaire des images : le wordmark du loader + les 3
+            calques du hero se téléchargent pendant l'écran de chargement, et sont
+            donc déjà prêts au moment où le hero apparaît → meilleur LCP sur mobile.
+            Aucun impact visuel : on ne change que l'ordre/priorité de chargement. */}
+        <link rel="preload" as="image" href="/wordmark.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/logo-letters.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/logo-ring.png" />
+        <link rel="preload" as="image" href="/logo-shapes.png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <SmoothScroll />
         <ScrollHalo />
