@@ -127,10 +127,12 @@ a{color:inherit;text-decoration:none}
 /* orbe terracotta PLEIN à gauche, identique dans tous les états : les deux yeux
    y vivent collés. Déployé : il reste à gauche, le menu glisse à sa droite.
    Replié : la barre se referme exactement dessus → orbe seul. */
-.navx-orb{flex:0 0 auto;position:relative;display:flex;align-items:center;justify-content:center;gap:2px;width:70px;height:70px;border-radius:50%;
+.navx-orb{flex:0 0 auto;position:relative;display:flex;align-items:center;justify-content:center;gap:0;width:70px;height:70px;border-radius:50%;
   background:var(--orb);transition:background .5s var(--ease)}
-.navx-eye{width:26px;height:26px;display:block}
-.navx-eye circle.eyeball{fill:var(--eye);transition:fill .5s var(--ease)}
+.navx-eye{width:26px;height:26px;display:block;position:relative;z-index:1}
+/* l'œil droit (2e) chevauche légèrement l'œil gauche en passant par-dessus */
+.navx-orb .navx-eye+.navx-eye{margin-left:-7px;z-index:2}
+.navx-eye circle.eyeball{fill:var(--eye);stroke:var(--orb);stroke-width:1.4;transition:fill .5s var(--ease),stroke .5s var(--ease)}
 .navx-home{display:flex;align-items:center}
 .navx-wordmark{height:24px;width:auto;display:block;padding:0 6px;object-fit:contain}
 .navx-items{display:flex;gap:2px;padding:0 4px}
@@ -161,6 +163,8 @@ a{color:inherit;text-decoration:none}
   /* --- HORS HERO : orbe terracotta en haut à gauche --- */
   .navx.scrolled{left:14px;right:auto;justify-content:flex-start}
   .navx.scrolled .navx-bar{max-width:62px;width:62px;height:62px;padding:0;gap:0;background:var(--orb)}
+  /* neutralise la règle desktop (width:70) qui aplatissait l'orbe en ovale sur mobile */
+  .navx.scrolled:not(.open) .navx-bar{max-width:62px;width:62px}
   .navx.scrolled .navx-orb{display:flex;width:62px;height:62px}
   .navx.scrolled .navx-mid{display:none}            /* les liens passent dans la barre du bas */
 

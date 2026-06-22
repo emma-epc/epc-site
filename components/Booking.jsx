@@ -82,11 +82,22 @@ export default function Booking() {
     node.innerHTML = "";
     const mount = () => {
       if (!window.Calendly || !node) return;
+      const fullName = `${f.prenom} ${f.nom}`.trim();
+      // Pré-remplissage robuste : on passe aussi les infos dans l'URL (Calendly
+      // les honore même quand l'objet prefill seul ne s'applique pas).
+      const params = new URLSearchParams({
+        hide_gdpr_banner: "1", background_color: "fbf6ee", primary_color: "b85c4a", text_color: "1f1a16",
+      });
+      if (fullName) params.set("name", fullName);
+      if (f.email) params.set("email", f.email);
+      if (f.prestation) params.set("a1", f.prestation);
+      if (f.societe) params.set("a2", f.societe);
+      if (f.localisation) params.set("a3", f.localisation);
       window.Calendly.initInlineWidget({
-        url: `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=fbf6ee&primary_color=b85c4a&text_color=1f1a16`,
+        url: `${CALENDLY_URL}?${params.toString()}`,
         parentElement: node,
         prefill: {
-          name: `${f.prenom} ${f.nom}`.trim(),
+          name: fullName,
           email: f.email,
           customAnswers: { a1: f.prestation, a2: f.societe, a3: f.localisation },
         },
