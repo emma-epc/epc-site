@@ -249,11 +249,10 @@ export default function Home() {
             trigger: text, start: "top 82%", end: "bottom 18%",
             onEnter: show, onEnterBack: show, onLeave: hide, onLeaveBack: hide,
           });
-          // les compteurs ne se lancent que lorsque les chiffres arrivent vraiment
-          // dans le champ de vision (et non quand le reel pointe à peine en bas
-          // de l'écran) → l'animation se voit « quand on arrive dessus »
+          // les compteurs démarrent dès que les chiffres entrent dans l'écran
+          // (le bloc des stats apparaît par le bas) → ça défile « dès qu'on les voit »
           ScrollTrigger.create({
-            trigger: statsEl || text, start: "top 72%", once: true,
+            trigger: statsEl || text, start: "top 95%", once: true,
             onEnter: runCounters,
           });
         });

@@ -35,6 +35,22 @@ export default function Nav() {
   const expandedRef = useRef(expanded);
   expandedRef.current = expanded;
 
+  // remonte tout en haut (utilisé par l'orbe sur mobile hors hero)
+  const scrollTop = () => {
+    if (window.__lenis) window.__lenis.scrollTo(0, { duration: 1.1 });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // clic sur l'orbe/barre : sur mobile hors hero → remonte en haut ; sinon (desktop)
+  // → bascule l'état déployé comme avant. En haut du hero (mobile) les liens gèrent eux-mêmes.
+  const onHeaderClick = () => {
+    if (window.matchMedia("(max-width:680px)").matches) {
+      if (!atTop) scrollTop();
+      return;
+    }
+    setHover((h) => !h);
+  };
+
   // Yeux : suivent la souris quand ils sont collés (orbe replié) ; bougent tout
   // seuls (+ regard qui se balade) quand le menu est totalement déployé.
   useEffect(() => {
@@ -82,11 +98,12 @@ export default function Nav() {
   );
 
   return (
+    <>
     <header
       className={`navx${atTop ? " attop" : " scrolled"}${expanded ? " open" : ""}${hover ? " tapped" : ""}${onTerra ? " on-terra" : ""}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => setHover((h) => !h)}
+      onClick={onHeaderClick}
     >
       {/* pétales sable qui éclosent autour de l'orbe au survol (rappel du logo) */}
       <div className="navx-petals" aria-hidden="true">
@@ -108,5 +125,11 @@ export default function Nav() {
         <span className="navx-disc disc-r"><Eye svgRef={eyeR} pupRef={pupR} /></span>
       </div>
     </header>
+
+    {/* Mobile uniquement : barre longue de liens fixée en bas, visible hors hero */}
+    <nav className={`navx-mobi${!atTop ? " on" : ""}`} aria-label="Navigation">
+      {links.map((l) => (<a key={l.label} href={l.href}>{l.label}</a>))}
+    </nav>
+    </>
   );
 }
