@@ -43,9 +43,9 @@ export default function HeroLogo({ className = "" }) {
   return (
     <div className={`herologo ${className}`}>
       <div className="hl-stack">
-        <img ref={shapes} className="hl-layer" src="/logo-shapes.png" alt="" aria-hidden="true" />
-        <img ref={ring} className="hl-layer" src="/logo-ring.png" alt="" aria-hidden="true" />
-        <img ref={letters} className="hl-layer hl-letters" src="/logo-letters.png" alt="EpC — Une présence digitale qui vous ressemble" fetchPriority="high" decoding="async" />
+        <img ref={shapes} className="hl-layer" src="/logo-shapes.png" alt="" aria-hidden="true" width="1000" height="1000" />
+        <img ref={ring} className="hl-layer" src="/logo-ring.png" alt="" aria-hidden="true" width="1000" height="1000" />
+        <img ref={letters} className="hl-layer hl-letters" src="/logo-letters.png" alt="EpC — Une présence digitale qui vous ressemble" fetchPriority="high" decoding="async" width="1000" height="1000" />
       </div>
     </div>
   );

@@ -304,9 +304,10 @@ export default function Home() {
       <Loader />
       <Nav />
 
+      <main>
       {/* ===== HERO — logo réel ===== */}
       <section className="hero" id="top">
-        <h1 className="sr-only">Emma Pouget Communication — une présence digitale qui vous ressemble. Community management, stratégie, contenus et sites web, Charente et Paris.</h1>
+        <h1 className="sr-only">Emma Pouget Communication — freelance en communication &amp; community manager en Charente : réseaux sociaux, création de contenus photo et vidéo, sites internet sur-mesure, formation et couverture d'événements à Cognac, Saintes, Angoulême, Bordeaux et dans le Gers (Auch).</h1>
         <HeroLogo />
       </section>
 
@@ -390,7 +391,7 @@ export default function Home() {
               </div>
               <div className="rr-video">
                 {r.vid ? (
-                  <video className="rr-vid" src={r.vid} muted loop playsInline preload="metadata" />
+                  <video className="rr-vid" src={r.vid} muted loop playsInline preload="none" />
                 ) : (
                   <div className="rr-grad" style={{ backgroundImage: r.grad }} />
                 )}
@@ -408,17 +409,18 @@ export default function Home() {
           </div>
           <div className="svc-grid">
             {services.map((s) => (
-              <article
+              <div
                 className={`svc-card pop ${s.c}${s.wide ? " wide" : ""}`}
                 key={s.title}
                 role="button" tabIndex={0}
+                aria-label={`Découvrir la prestation ${s.title}`}
                 onClick={() => openCard(s)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCard(s); } }}
               >
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
                 <span className="svc-open">Découvrir<span className="arw">→</span></span>
-              </article>
+              </div>
             ))}
           </div>
         </div>
@@ -452,6 +454,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* ===== Modules globaux ===== */}
       <Booking />
