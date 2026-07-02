@@ -746,3 +746,25 @@ select.bk-fi{appearance:none;-webkit-appearance:none;cursor:pointer;
   .jr-grid{grid-template-columns:1fr;gap:18px}
   .jr-cta{flex-direction:column;align-items:flex-start}
 }
+
+/* ===== JOURNAL — module photos (galerie animée, actif si l'article a des photos) ===== */
+.jp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:52px 0}
+.jp-grid.jp-solo{grid-template-columns:1fr;max-width:620px;margin-left:auto;margin-right:auto}
+.jp-item{opacity:0;transform:translateY(56px) scale(.92) rotate(0deg);
+  transition:opacity .7s var(--ease),transform .8s var(--pop)}
+.jp-item.on{opacity:1;transform:translateY(0) scale(1) rotate(var(--tilt,0deg))}
+.jp-item:nth-child(4n+1){--tilt:-1.4deg}
+.jp-item:nth-child(4n+2){--tilt:1.2deg;margin-top:26px}
+.jp-item:nth-child(4n+3){--tilt:.9deg}
+.jp-item:nth-child(4n+4){--tilt:-1.1deg;margin-top:-14px}
+.jp-item img{display:block;width:100%;height:auto;border-radius:26px;
+  box-shadow:0 24px 60px -30px rgba(31,26,22,.4);
+  transition:transform .5s var(--pop),box-shadow .5s var(--ease)}
+.jp-item:hover img{transform:rotate(calc(var(--tilt,0deg) * -1)) scale(1.02);
+  box-shadow:0 32px 70px -30px rgba(31,26,22,.5)}
+.jp-cap{font-family:var(--font-body);font-size:13px;color:var(--ink-soft);
+  margin-top:12px;padding-left:6px}
+@media(max-width:760px){
+  .jp-grid{grid-template-columns:1fr;gap:18px}
+  .jp-item:nth-child(n){margin-top:0}
+}

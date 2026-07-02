@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { ARTICLES, getArticle, formatDate } from "@/lib/journal";
+import JournalPhotos from "@/components/JournalPhotos";
+import { ARTICLES, getArticle, formatDate, articleColor } from "@/lib/journal";
 
 const SITE_URL = "https://ep-communication.fr";
 
@@ -59,7 +60,7 @@ export default function Article({ params }) {
       <Nav />
       <main className="wrap jr-page jr-article">
         <a className="back" href="/journal">← Le Journal</a>
-        <span className={`jr-cat jr-cat-solo jr-${a.color}`}>{a.category}</span>
+        <span className={`jr-cat jr-cat-solo jr-${articleColor(a)}`}>{a.category}</span>
         <h1 className="art-title" style={{ fontSize: "clamp(36px,5vw,72px)" }}>{a.title}</h1>
         <p className="legal-upd">
           Par Emma Pouget · <time dateTime={a.date}>{formatDate(a.date)}</time>
@@ -70,6 +71,7 @@ export default function Article({ params }) {
             if (b.t === "h2") return <h2 key={i}>{b.c}</h2>;
             if (b.t === "quote") return <blockquote key={i}>{b.c}</blockquote>;
             if (b.t === "ul") return <ul key={i}>{b.c.map((li, j) => <li key={j}>{li}</li>)}</ul>;
+            if (b.t === "photos") return <JournalPhotos key={i} images={b.c} />;
             return <p key={i}>{b.c}</p>;
           })}
         </div>

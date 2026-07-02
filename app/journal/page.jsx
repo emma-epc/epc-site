@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { ARTICLES, formatDate } from "@/lib/journal";
+import { ARTICLES, formatDate, articleColor } from "@/lib/journal";
 
 export const metadata = {
   title: "Le Journal — conseils réseaux sociaux, contenus & visibilité locale",
@@ -48,7 +48,7 @@ export default function Journal() {
 
         <div className="jr-grid">
           {ARTICLES.map((a) => (
-            <a className={`jr-card jr-${a.color}`} key={a.slug} href={`/journal/${a.slug}`}>
+            <a className={`jr-card jr-${articleColor(a)}`} key={a.slug} href={`/journal/${a.slug}`}>
               <span className="jr-cat">{a.category}</span>
               <h2 className="jr-title">{a.title}</h2>
               <p className="jr-excerpt">{a.excerpt}</p>
