@@ -26,16 +26,21 @@ export const metadata = {
     template: "%s | EpC — Emma Pouget Communication",
   },
   description:
-    "Emma Pouget (EpC), freelance en communication & community manager à Cognac (Charente) : réseaux sociaux, création de contenus photo/vidéo et reels, sites internet sur-mesure, formation et contenus événementiels. Charente, Nouvelle-Aquitaine, Gers et bientôt les Landes.",
+    "Emma Pouget (EpC), freelance en communication & community manager à Cognac (Charente) : réseaux sociaux, création de contenus photo/vidéo et reels, sites internet sur-mesure, formation et contenus événementiels. Charente, Charente-Maritime, Nouvelle-Aquitaine, Gers, Île-de-France — et bientôt les Landes.",
   keywords: [
     "freelance communication Charente",
     "community manager Cognac",
     "community manager Saintes",
     "community manager Angoulême",
+    "community manager La Rochelle",
+    "community manager Charente-Maritime",
     "community manager Bordeaux",
     "community manager Gers",
+    "community manager Landes",
     "community manager Mont-de-Marsan",
     "community manager Auch",
+    "community manager Paris",
+    "freelance communication Île-de-France",
     "gestion réseaux sociaux Charente",
     "création de site internet Cognac",
     "création de site internet Charente",
@@ -61,7 +66,7 @@ export const metadata = {
   openGraph: {
     title: "Community manager & création de site internet en Charente — Emma Pouget",
     description:
-      "Une présence digitale qui vous ressemble. Réseaux sociaux, création de contenus photo/vidéo, sites internet, formation et événementiel — Charente, Nouvelle-Aquitaine, Gers et bientôt les Landes.",
+      "Une présence digitale qui vous ressemble. Réseaux sociaux, création de contenus photo/vidéo, sites internet, formation et événementiel — Charente, Charente-Maritime, Nouvelle-Aquitaine, Gers, Île-de-France, et bientôt les Landes.",
     url: SITE_URL,
     siteName: "EpC — Emma Pouget Communication",
     locale: "fr_FR",
@@ -71,7 +76,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Community manager & création de site internet en Charente — Emma Pouget",
-    description: "Réseaux sociaux, contenus photo/vidéo & reels, sites internet sur-mesure, formation, événementiel. Charente, Nouvelle-Aquitaine, Gers, bientôt les Landes.",
+    description: "Réseaux sociaux, contenus photo/vidéo & reels, sites internet sur-mesure, formation, événementiel. Charente, Charente-Maritime, Nouvelle-Aquitaine, Gers, Île-de-France — bientôt les Landes.",
     images: ["/logo-epc.png"],
   },
   robots: {
@@ -138,6 +143,7 @@ const jsonLd = {
     { "@type": "City", name: "Mont-de-Marsan" },
     { "@type": "City", name: "Auch" },
     { "@type": "City", name: "Pavie" },
+    { "@type": "City", name: "Paris" },
   ],
   knowsAbout: [
     "Community management", "Gestion des réseaux sociaux", "Stratégie digitale", "Communication digitale",
@@ -164,6 +170,7 @@ export default function RootLayout({ children }) {
             calques du hero se téléchargent pendant l'écran de chargement, et sont
             donc déjà prêts au moment où le hero apparaît → meilleur LCP sur mobile.
             Aucun impact visuel : on ne change que l'ordre/priorité de chargement. */}
+        <link rel="preload" as="font" href="/fonts/gulfs-display.woff2" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/wordmark.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/logo-letters.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/logo-ring.png" />
