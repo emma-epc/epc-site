@@ -170,6 +170,7 @@ export default function RootLayout({ children }) {
             calques du hero se téléchargent pendant l'écran de chargement, et sont
             donc déjà prêts au moment où le hero apparaît → meilleur LCP sur mobile.
             Aucun impact visuel : on ne change que l'ordre/priorité de chargement. */}
+        <link rel="preload" as="font" href="/fonts/gulfs-display.woff2" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/wordmark.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/logo-letters.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/logo-ring.png" />
