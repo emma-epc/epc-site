@@ -434,7 +434,7 @@ export default function Home() {
               <h2 className="eb-h">Parlons de votre <em>projet</em>.</h2>
               <a className="eb-mail" href="mailto:emma.pouget@ep-communication.fr">emma.pouget@ep-communication.fr</a>
               <div className="eb-meta">
-                <span>Nouvelle-Aquitaine&nbsp;·&nbsp;Île-de-France&nbsp;·&nbsp;Gers</span>
+                <span>Charente&nbsp;·&nbsp;Charente-Maritime&nbsp;·&nbsp;Nouvelle-Aquitaine&nbsp;·&nbsp;Gers&nbsp;·&nbsp;Île-de-France</span>
               </div>
               <div className="eb-socials">
                 <a className="eb-social" href="https://www.instagram.com/emmapouget.communication/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
